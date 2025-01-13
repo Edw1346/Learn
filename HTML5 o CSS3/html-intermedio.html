@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Metadatos-->
+
+<link rel="icon" href="icono.png" type="image/png">  <!--icono de la página: rel relación del metadato.  Href URL el logo 64×64). Type formato de imagen (recomendado) >
+
+<html lang="es"> <!--Idioma en el navegador: es español-->
+
+<meta charset="UTF-8">   <!--conjunto de caracteres -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Adquirir datos de la pantalla o vista-->
+
+<meta name="description" content="Esta pagina web hace..."> <!--Colocsr una descripción para el motor de búsquedas-->
+
+<meta name="keywords" content="frutas, fruta, banana, manza manzana">  <!--Palabras claves para las busquedas-->
+
+<meta name="author" content="Edwin">   <!--Informacion del autor-->
+
+<meta name="robots" content="noimageindex"> <!--Para el navegar: noindex (no indexar), noimageindex (no indexar imagen)-->
+
+<meta name="title" content="Venta de frutas"> <!--Titulo, las busquedas en los motores-->
+
+<meta name="OG:TITLE" content="Pagina"> <!--Para cuando se referencie la web con URL, le da el título -->
+
+<meta name="OG: IMAGE" content="imagen.png">  <!--Para cuando se referencie en URL y de la imagen-->
+
+<meta name="OG:description" content="Hola soy la descripción"> <!--Para cuando se referencie en URL y de una descripción-->
+
+<!-- http://metatags.io/: para observar metadatos en url (OG) -->
+
+    <title>Document</title>
+</head>
+<body>
+<!--TEXTAREA, area de texto grande-->
+<textarea readonly placeholder="Dejá tu mensaje">   Hola   </textarea>    <!--Text area solo de lectura-->
+
+<textarea disabled placeholder="Dejá tu mensaje"> Hola </textarea>   <!--Desactiva un input -->
+
+<textarea rows="1" placeholder="Dejá tu mensaje">Hola</textarea> <!--Agranda el espacio a los text area-->
+
+
+<!--FOCUS entre un label y input-->
+<label for="nombre">Nombre completo</label>   <!-- conectar el láser con el for>
+<input type="text" placeholder="John Doe" id="nombre">  <!--conectar el input con el label con el id-->
+
+
+<!--OPCION, seleccion de opciones-->
+<label>Tipo de usuario      <!--conectar el label con el input metiendolo dentro-->
+
+<select name="type-of-user">   <!--Espacio para seleccionar valores-->
+<option value="user1">Seguidor/a</option>
+<option value="user2">Empresa</option>
+<option value="user3">Otros</option>
+</select>
+
+
+<!--DATALIST un autocompletado y opcional-->
+<label>Referente
+<input list="referente" name="referente">      <!--conectar el input con list a el datalist con el id-->        
+<datalist id="referente" name="type-of-user">    
+<option value="user1">Soy Dalto</option>
+<option value="user2">Una empresa</option>
+<option value="user3">Un amigo</option>
+</datalist>
+</label>
+
+
+<!--FIELDSET, separa input de un formulario.  LEGEND da nombre a esas secciones-->
+<form>
+<fieldset>
+<legend>INFORMACIÓN BÁSICA</legend>
+<input type="text" placeholder="Nombre">
+<input type="text" placeholder="Apellido">
+<input type="number" placeholder="Edad">
+</fieldset>
+
+<fieldset>
+<legend>INFORMACIÓN DE CONTACTO</legend>
+<input type="email" placeholder="Email">
+<input type="text" placeholder="Telefono">
+</fieldset>
+</form>
+
+
+<details>     <!--pestaña desplegable o un acordeon-->
+<summary>¿Que tengo que traer?</summary> <!--Titulo de la barra desplegable-->
+<ul> <li>Tu laptop</li>               <!--contenido de la barra al ser enfocada-->
+<li>Ganas de codear</li> </ul>
+</details>
+
+<!--URL-->
+<a href="terms.html" download>DESCARGAR TERMINOS Y CONDICIONES</a> <!--Descargar desde un link-->
+
+<a href="https://bebita.com" rel="noopener" target="_blank">BEBITA.COM</a> <!-- noopener evitar tener acceso a window open y redirigir.    noreferrer: evitar al window open y no tener acceso a la cabaecera del head y saber de viene porque vas a otro sitio.  nofollow: no indexar el link con google->
+
+<a href="mailto:soydaltc@gmail.com">Gmail</a>  <!--llevar a un correo-->
+
+<a href="tel:+5491123456789">Telefono</a> <!--llevarlo a llamar a el numero-->
+
+<!-- METODOLIA BEM: Block element modifire, forma específica de trabajar 
+Si hay elemento que necesita manejar estilos diferentes pero tiene muchos otros estilos en común, crear una base o estilos predefinidos para ambos elementos y después modificarlos independientemente como un botón login y register. Reutiliza código, se simplificar su especificidad, código más elegible*/
+BEM, se compone de 3 parte: Bloque (block), es grupo de elementos que no dependede de nadie para existir y que puede ser reutilizable. Elemento (element) es una parte de un bloque. Modificadores (modifire), forma de modifica los 
+bloques y elementos (clase modificadora)-->
+
+<!--Bloques: los bloques se nombras con la función que cumple por ejemplo (list, navegation, card)
+Elemento: los elementos se nombra según donde se posicionan en el bloque con doble guión invertido (lista__item)
+Modifire: Clase modificadora se nombra con nombre elemento y su modificación con doble guione (item--important) se coloca como la segunda clase del elemento o bloque que se quiere modificar-->
+
+<ul class="list"> 
+<li class="list__item item--important"></li>
+<li class="list__item"></li>
+<li class="list__item"></li>
+</ul>
+
+
+
+<!--Tablas-->
+<table>
+<tr>        <!--filas: tr table-->
+<th>Producto</th>     <!--Encabezado: th-->
+<th>Costo</th>
+<th>Unidades</th>  
+</tr>
+
+<tr>                       <!--celdas: td-->
+<td>Banana</td>
+<td>$3</td>
+<td>1KG</td> 
+</tr>
+
+<!--secciones de un tabla-->
+<thead>
+<tr>      
+<th>Producto</th>      <!--thead, tbody, tfooter-->
+<th>Costo</th>
+<th>Unidades</th>
+</tr>
+</thead>
+
+<td colspan="2">$9</td>  <!--unir celldas-->
+
+
+<!--VIDEO-->
+<video controls autoplay muted src="video.mp4">   <!--Atributos: controls controles, autoplays, muted muteado, src url del video-->
+<track src="captions.vtt"  default kind="captions" srclang="es" label="Español (Latinoamérica)"> <!--subtitulos: scr url de los subtitulo, defautl kind tipo de archivo, srclang lenguaje al navegador, label opcion con nombre del subtitulo-->
+Tu navegador no soporta video  <!--Para cuando el navegador no soforta el formato, es bueno poner el link del video-->
+</video>   
+
+
+<!--AUDIO-->
+<audio controls autoplay muted src="video.mp4"> <!--Atributos: controls controles, autoplays, muted muteado, src url del video-->
+Tu navegador no soporta video  <!--Para cuando el navegador no soforta el formato, es bueno poner el link del video-->
+<audio/>
+
+
+<!--CARGA TARDADA-->
+<img loading="lazy" src="../imagenes/dalto.png">   <!--hacer que carge de ultimo o cuando el scrollo llegue-->
+
+
+<!--Semantica-->
+
+<header>  <!--Encabezado-->  <-/header>
+<nav>  <!--barra de navegacion--> </nav>
+<main> <!--Zona de mayor importancia--> </main>
+<artícule> <!--Zona donde contenido--> </articule>
+<section> <!--Seccion del documento--> </section>
+<aside> <!--bloque de lado--> </aside>
+<footer> <!--pie de pagina--> </footer>
+
+
+<!--ACCESIBILIDAD, Que todos los dispositivos puedan acceder-->
+<!--para acceder al lector de pantalla: window clt entre-->
+<!--o lector de pantalla web: navegador/extensiones/buscar:Chrome vox-->
+
+<img src="img.png" alt="imagen 1">  <!--El alt es para los lectores de pantalla-->
+
+<a href="url.htnl" arial-label="Enlace de inicio">Hola</a>   <!--El arial-label para los lectores de pantalla-->
+
+<!--<header>  <nav>  <main> <artícule> <section> <aside> <footer> <h1, h2, h3.. Todas estas las lee los lectores -->
+
+<!--En los formularios los label con sus atributos input y sus atributos (id, name y placeholder) son leídas cuando es un 
+
+formulario-->
+
+<div role="aside" arial-..>  <!--codigo-->  </div>  <!--Si una tag no es leida por un lector se le asigna un role y el arial-... por el cual el lector pueda leer puede ser los roles que ya estan disponibles: y revisar la accesibilidad el navegador tiene una función llamada lighthouse, verifique y mejore su página -->
+
+<!--Que tenga cosas basicas como que pueda navegar todo con el tab y el enter-->
+
+
+
+<dialog>            <!--Crear una ventana modal con las etiquetas nativas de HTML-->
+<!--Contenido-->
+<form method="dialog">   <!--Crear un boton para salir-->
+<button>X</button>         <!--Boton-->
+</form>
+</dialog>
+</body>
+</html>
+
+/* SRCSET, SIZES: Condiciones para que se cargue el contenido adecuado dependiendo la resolución del dispositivo*/
+
+<img src="imagen.png" 
+srcset="imagen-mediana.png 400w, 
+imagen-pequeña.png 600w", 
+imagen-muy-pequeña 800w,
+size="(max-width: 700px) 600px, (max-width: 400px) 800px, 900px">
+<!--etiqueta (img), atributos: URL base (src), URLs alternativos que se ejecutan segun la resolución (srcset) sintaxis; URL y la resolución en la que cargará la URL, condiciones que se ejecutan si cumples la condiciones sintaxis; condición (max-width: 500px) y el tipo de resolución que cargue dependiendo si cumple la condición (400px)-->
+
+<!--PICTURE: tag para especificar múltiples fuentes para una imagen y que el navegador puede eligir muchas opciones, SOURCE Y MEDIA: Para dar alternativas al navegador-->
+
+<picture>
+<source srcset="imagen.webp" type="image/webp">     <!--webp es un formato recomendado para imágenes en la web>-->
+<source media="(max-width: 400px)" srcset="imagen-pequeña.png">
+<source media="(max-width: 600px)" srcset="imagen-grande.png">
+<img src="imagen-normal.png">
+</picture>    <!--(Todo dentro picture: source es para darle más opciones al navegador. Atributos: media es para darle condiciones en cuanto a la resolución, srcset es la URL que se colocaría en esa resolución,  srcset son las url alternativas que se colocan si el media es correcto coloca en orden de resolución (más pequeña a más grande)-->
+<!--Picture es util cuando la imagen es muy grande y queremos optimizar las cargas-->

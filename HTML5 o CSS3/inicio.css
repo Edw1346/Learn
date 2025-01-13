@@ -1,0 +1,268 @@
+/* Los comentarios pueden en linea y multilinea */
+
+/* CSS, funciona en cascada, dependiendo el momento en que se escribe una instruccion, puede ejecutar o reescribirse */
+
+/* ESTRUCTURA:
+    Elemento {
+        Propiedad: valor;
+        Propiedad: valor
+    } */
+
+
+/* IDENTIFICADORES */
+
+/* ID, para seleccionar id es con el numera # y el nombre del id: #parrafo-1 */
+/* CLASES, para seleccionar clases es con el punto . y el nombre de la clase: .parrafo-1 */
+
+
+/* IDS */
+.parr-varios {
+    color: aqua;
+}
+
+/* CLASES */
+#parr-9{
+    color: green
+}
+
+
+/* TIPOGRAFI: FONT */
+
+.parr-varios{
+    color: red; /* Color */
+    font-family: sans-serif;   /* Tipografia: el navegar va a cargar todas las que pongar si fallan */
+    font-size: 16px; /* Taamaño de la letra */
+    font-weight: bold; /* Poner en negrita la letra segun la tipografia bolder negrita y bolder negrita gruesa o ponerlo en un rango de 100 al 900 */
+    font-style: normal;   /* Inclinacion de la letra segun la tipografia, normal (defaul), italic: inclinada, obliqe bastante inclinada o eligir la inclinacion con deg como obliqe 45deg*/ 
+    text-align: left;   /* La alineacion del parrafo: left inicia izquierda, center se centra en la pantalla, right inica por la derecha, justify alinea la primera y la ultima letra con los reglos siguiente, start, se inica donde se empieza a escribir y end, inicia donde se termina de escribir */
+    text-decoration: underline; /* Decora: underlina subraya, overline subraya por arriba, line-through subraya en el medio, double doble linea,  */
+    line-height: normal; /* Espacio entre linea: nomral el navegador lo elige, numero se puede colocar una distacia manual del tamaño (1, 3, 5, ect) */
+    letter-spacing: normal; /* Espacio entre letras: normal el navegador lo elige o colocar una medida de px, em, etc */
+    text-transform: uppercase; /* Trasforma el texto: uppercase convierte todo en mayuscula, lowercase todo en minuscula, capitalize la 1° letra en mayuscula en cada palabra, full-with para otros idiomas */
+    text-shadow: 0px 0px 4px red; /* Para dar sombra: 1p vertical, 2p horizontal, 3p grosor y 4p el color */
+    word-wrap: break-word; /* Corta las palabra segun el espacio de la pantalla por silabas */
+    word-break: break-all; /* Corta las palabra segun la pantlla pero no respta las silabas */
+}
+
+
+
+/* BOX MODEL */
+/* Elemento es una caja rectangula (como un bloque) */
+/* Esta caja se compone de: 1. CONTENT (Contenido del bloque o caja), 2. PADDING (relleno) hace espacio entre 
+el contenido  y el borde. 3. BORDER (borde) linea que rodea el toda la caja, tanto al contenido como al padding
+4. MARGIN (margen) espacio fuera de la caja (borde, contenido y padding), separa el elemento de otros elementos 
+(el margen no forma parte de la caja)
+
+
+/* VALORES */
+.parr-varios {
+    padding: 10px; /* Padding (relleno) de 10px en los 4 lados: izquierda, derehca, arriba y abajo*/
+    padding: 10px 10px 10px 10px; /* cada valor (como 10px) se refiere a cada lado */
+    padding:  10px 10px; /* Con 2 valores: 1 valor (arriba y abajo). 2 valor (izquierda y derecha) */
+    padding-left: 10px;  /* Valor a la izquierda */
+    padding-right: 10px;    /* Valor la a derecha */
+    padding-top: 10px;  /* Valor a arriba */
+    padding-bottom: 10px;   /* Valor a la abajo */
+}
+
+/* PADDING: Espacio que aleja el contenido del borde */
+.caja {
+    padding: 10px; /* Padding en los 4 lados: izquierda, derehca, arriba y abajo*/
+    padding: 10px 10px 10px 10px; /* padding especifico en cada lado */
+    padding-left: 10px;  /* padding a la izquierda */
+    padding-right: 10px;    /* padding a derecha */
+    padding-top: 10px;  /* padding a arriba */
+    padding-right: 10px;   /* padding a la abajo */
+}
+
+/* MARGEN: Espacio que aleja la caja de otros elementos */
+.caja {
+    margin: 10px; /* Margen todos los lados */
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    
+    margin: auto;   /* Este centra el contenedor de manera horizontal */
+}
+
+/* Colapso margenes: cuando hay mas de un margen empujandose una a la otra, la distancia del margen que 
+queda es el margen mas grandes. Si se quiere ver ambos margenes,usar esta propiedad: */
+body {
+    display:flex;
+    flex-direction:column
+}
+/* o para que se mire los margenes combinados o se colocar un contenedor en medio de los margenes y que tenga esa misma propiedad: */ 
+.separador {
+    overflow:hidden;
+}
+
+/* BORDE: Linea que rodea el padding y el contenido */
+.caja {
+    /* Border-width: el ancho del borde */
+    border-width: 1px;
+
+    /* Border-style */
+    border-style:ridge;    /* Estilo del borde: solido (solido), dashed (punteado), double(doble borde), groove(marcp), dotted (punteado lento), hidden (oculto), outset, ridge   */
+
+    /* Border-color */
+    border-color: red;  /* Color del borde */
+
+    /* Border-radius: Redondear el borde */
+    border-radius: 100px;   /* Redondea los bordes, los 4 bordes, cuando se usa los porcentaje el redondeo se mide del tamaño de la mitad de la caja, hasta la esquina, ese esa distancia es el 100%  */
+    border-radius: 10px 0 20px 0; /* El 1 valor afecta la esquina superior izquierda, 2 valor, esquina derecha superios, 3 valor esquina inferios derecha, y el 4 valor es la esquina izquierda inferior  */
+    border-radius: 10px 10px;   /* El 1 valor son las esquinas superios y el 2 valor las esquina inferiores */
+    border-top-left-radius: 100px;   /* Redondea las esquina  superiores, hay otras maneras de redondear las otras esquinas*/
+    border-bottom-right-radius: 100px;  /* Redondea las esquinas inferiores */
+
+    border: 1px solid black; /* Recibe 3 parametros: anchura, color, estilo */
+    border-bottom: 1px solid black;  /* Borde abajo, esta el top, left y right */
+}
+
+
+/* CONTENT-BOX */
+.caja{
+    box-sizing: content-box;    
+    /* El tamaño de toda la caja es el contenido, los padding y el borde aumentan el tamaño de todo el elemento */
+}
+
+/* BORDER-BOX */
+.caja{
+    box-sizing: border-box;   
+    /* El tamaño de toda la caja es el borde, padding y contenido, si se añade un padding o borde restaria el tamaño del contenido */
+}
+
+
+/* COLORES */
+.caja{
+    /* Valores predefinidos */
+    color: red; /* Estos colores predetermnado, varian segun el navegador */
+
+/* RGB: Red (0-255) Green (0-255) Blue (0-255), dando un total de 16 777 216 colores */
+    color: rgb(red, green, blue);      /* Cada color puede tener difentes valores */
+    color: rgb(255,0,0); /* Rojo */
+    color: rgb(0,255,0); /* Verde */
+    color: rgb(0,0,255); /* Azul */
+    
+    /* Volores hexadecimal (0123456789bcdef), puedes poner 1 (000), 2 (001122) valores para cada color (rgb) */
+    color: rgb(#f00);   /* Rojo en hexadecimal */
+    color: rgb(#0f0);   /* Verde en hexadecimal */
+    color: rgb(#00f);   /* Azul hexadecimal */
+    color: rgba(#00fa);   /* Azul con rgba */
+/* En el buscador puedes buscar:    RGBA picker y buscar el codigo para un color exacto */
+
+/* HSL: Hue (0-360) Saturation (0-100%) Lightness (0-100%): Hue, ruleta de colores. Saturation, saturacion, Lightness */
+    color: hsl(0, 100%, 50%);      /* Rojo */
+    color: hsl(120, 100%, 50%);      /* Verde */
+    color: hsl(240, 100%, 50%);      /* Azul */
+
+/* HSL: Hue (0-360) Saturation (0-100%) Lightness (0-100%) trasparencia (0-1) */
+color: hsl(0, 100%, 50%, 0.5);      /* Rojo */
+color: hsl(120, 100%, 50%, 0.1);      /* Verde */
+color: hsl(240, 100%, 50%, 0.8);      /* Azul */
+/* En el buscador puedes buscar:    HSLA picker y buscar el codigo para un color exacto */
+/* HSL y HSLA puede servir igual con valores hexadecimales */
+
+/* Para buscar colores especificos pueden buscar: Generador de paletas de colores */
+}
+
+
+/* UNIDADES DE MEDIDAS */
+.caja {
+    width: 10pt;    /* pt para medidas en impresion */
+
+    /* Medidas absolutas, medidas con tamaño fijo. Usadas mas en cosas fisica para impresion */
+    width: 4cm;    /* cm se visualiza diferente dependiendo el tamaño de la pantalla medida que sirve para imprimir y tener medidas en cm, igual con mm (milimemtro), in (pulgadas)  */
+
+    /* Medidas fijas */
+    height: 10px;   /* Medida de un pixer de la pantalla, dependiendo del tamaña hay mas pixeles */ 
+
+    /* Medidas relativas */
+    font-size: 100%;    /* Medidas que dependen de algo y son varaibles dependiendo del tamaño que lo contiene*/
+    font-size: 2em;    /* Medida multiplicada del elemento padre: em = elemento padre * valor. 2em son 2 veces el tamaño del elemeto padre. Si el elemento padre no tiene difinido el valor por el cual multiplicar el valor, em busca mas arriba, el elementos padres que si tenga difinido esa regla  */
+    font-size: 2rem;    /* Medida que multiplica el elemento raiz rem = elemento raiz * valor. 2rem son veces del elemento raiz (html) */
+
+    /* Medida del viewport */
+    width: 20vw;    /* Medida en porcentaje segun el tamaño del ancho de la ventana del navegador o la vista */
+    height: 20vh;    /* Medida en porcentaje segun el tamaño del largo de la ventana del navegador o la vista */
+    font-size: 1vmax;    /* Medida en porcentaje que sera el valor de la medida mas grande entre el width y height*/
+    font-size: 1vmin;    /* Medida en porcentaje que sera el valor de la medida mas pequeña entre el width y height*/
+
+    line-height: 1ex;    /* Medida para la tipografia, mide el caracter x y mide el espaciado */
+    line-height: 1ch;   /* Medida del espaciado de la tipografia  */ 
+
+    /* em y rem: es buena para la fuente, espaciado como en tipografia */
+    /* % em rem vw vh: buena para las dimenciones */
+    /* px: para valores precisos y especificos */
+}
+
+
+/* FONDOS */
+.caja {
+    background-color: #00fa; /* Color del fondo con rgba */
+    background-image: url("urldeimagen");   /* Una imagen de fondo */
+    background-position:center; /* Posicionar la imagen: centre, top, bottom, left, right y con medidad px segun que lados quieres centrar*/
+    background-repeat:no-repeat;    /* Repetir la imagen en el fondo: repeat x (repite horizontalmente) y repeat y (repite verticalmente) */
+    background-size: contain;  /* Tamaño del fondo y no del contenedor: contain, fuerza a que se vea completa, cover, adapta el tamaño de la imagen a lo largo y ancho. y con medidas % px  */
+    background-clip:content-box ;   /* Como maneja el fondo: content-box, border-box,  */
+    background-attachment:fixed ; /* fixed, fija el fonde y se fija hasta que se pase con el scroll. Scroll por defaul. loca, */
+
+    /* Forma de usar background */
+    background: url("imagen") top / no-repeat  fixed red ;   /* imagen, position / repeat, aattachment, color, size, clip */
+}
+
+
+/* GRADIENTES */
+.caja {
+    background-image: linear-gradient(transparent,#000a);    /*linear es un efecto lineal*/
+    background-image: linear-gradient(to right, transparent,#000a);    /*dirección del efecto to (right, te, bottom, left)*/
+    background-image: inear-gradient(to top, transparent 89%,#000);   /* puedes tener un porcentaje de transparencia %*/
+    background-image: linear-gradient(to top,  blue,  #000a,  green);   /*puede tener varios colores*/
+    background-image: radial-gradient(green, #000a);   /*radial que un efecto circular*/
+    background-image: conic-gradient( transparent, #000a);     /*cómic es un efecto de conocimiento*/
+
+/*Sombras */
+text-shadow: 0 0 4px red;    /* sombras: 1p hor: - izq + der.   2p vert: - arr + aba.  3p desenfoque   4p expansión de sombre 5p color de sombra */
+
+filter: drop-shadow(0px 0px 3px #000); /* 1p hori.   2p vert.   3p difu.   4p col. Para imganes con fondos trasparentes */
+}
+
+/* estilo en estado normal */
+details {
+background-color: transparent;
+border:1px solid #ddd;
+border-bottom: none;
+}
+  
+/* estilo cuando este abierto o estado abierto (open) */
+details [open] {
+border:1px solid #ddd;
+background-color:#555;
+ }
+
+
+/* INPUT: Entrada de datos */
+.input {
+    box-sizing: border-box;
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */

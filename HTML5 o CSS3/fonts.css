@@ -1,0 +1,23 @@
+/* Tipografia externa */
+/* Descargar la tipografia como en google font */
+
+/* Tipografia externa */
+/* Font-Face, accede a los estilo madre*/
+
+/* Tipografia con un rango de negrita: 400 */
+@font-face {
+    font-family: Monserat; /*El nombre de la tipografia */
+    src: url("fonts/Monserat-Regular.ttf");     /* La url de la tipografia, pon la extension, para esto debe de tener una carpeta de fuentes o tipografias */
+    /* Caracteristicas de esta fuente, segun el tipo del que pusiste en la url */
+    font-weight: 400;
+}
+
+/* Tipografia con un rango de negrita: 700*/
+@font-face {
+    font-family: Monserat; /*El nombre de la tipografia */
+    src: url("fonts/Monserat-ExtraBold.ttf");     /* La url de la tipografia, pon la extension, para esto debe de tener una carpeta de fuentes o tipografias */
+    /* Caracteristicas de esta fuente, segun el tipo del que pusiste en la url */
+    font-weight: 700;
+}
+
+/*  */

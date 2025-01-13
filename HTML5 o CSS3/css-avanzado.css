@@ -1,0 +1,26 @@
+/* CSS AVANZADO */
+
+/* Filter y backdrop-filter */
+
+/* filter: aplica efecto a elementos o cajas (si es caja todos los elementos dentro tendrá el efecto) */
+.box {
+filter: drop-shadow(0 0 15px black);  /*Útil en contenedor de imágenes o en las imágenes con fondos trasparentes*/
+filter: blur(10px);   /* desfoca elementos o cajas */
+filter: brightnees(0.5); /* brillo, ( el brillo normal es de 0 a 1, superior a 1 modifica los colores originales)*/
+filter: contrast(0.5); /* contrastes, ( el constraste normal es 0 a 1, superior 1 modifica colores originales)*/
+filter: grayscale(0.5); /* Es una escala de grises, (normal de 0 a 1, y superior a 1 modifica colores)*/
+filter: sature(0.5); /* Saturacion, (normal de 0 a 1, y superior a 1 modifica colores)*/
+filter: hue-rotate(100deg) ; /* rota los colores según el círculo de matrices de colores, se usa el deg como unidad */
+filter: opacity(0.5); /* La opacidad (normal de 0 a 1) */
+filter: invert(0.5);  /* Invierte los colores según el espectro de colores*/
+filter: sepia(0.5);  /* Es un filtro sepia (normal de 0 a 1, y superior a 1 modifica colores) */
+filter: scroll(); /* Para animación con scroll */
+filter: view(); /* Para animación view */
+filter: blur() opacity() invert(); /* Sé le puede dar varios efectos, dejando espacio ñs*/
+
+/* backdrop-filter: El backdrop hace que los efectos se hace con el contenido que este detrás del elemento o caja como que afecta el fondo*/
+backdrop-filter: blur(0.5)  /* Desemfoca el fondo o el contenido detrás*/
+/* funciones del filter: drop-shadow, blur, constrat, brightness, grayscale, sature, opacity, inviert, hue-rotate y demas*/
+}
+
+/* TRASFORMER */

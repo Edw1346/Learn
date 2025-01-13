@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="demo.js" defer></script>
+
+    <style>
+        input{
+            margin: 10px 15px;
+            height: auto;
+            width: 60%;
+        }
+
+        label{
+            font-size: 20px;
+        }
+
+        .control {
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+<div class="control">
+    <label for="">width: </label>
+    <input type="range" min="0" max="200" step="20" value="30" class="width">  <br> 
+    <label for="">height: </label>
+    <input type="range" min="0" max="200" step="20" value="20" class="height">   <br>
+    <label for="">Padding: </label>
+    <input type="range" min="0" max="100" step="10" value="0" class="padding">   <br>
+    <label for="">Margen: </label>
+    <input type="range" min="0" max="100" step="10" value="0" class="margen">   <br>
+    <label for="">Borde</label>
+    <input type="range" min="0" max="10" step="1" value="0" class="borde">   <br>
+    <label for="">Borde-raduis: </label>
+    <input type="range" min="0" max="100" step="5" value="0" class="borde_raduis">   <br>
+    <label for="">Box-sizing: </label>
+    <select name="" id="" class="select"><option value="border-box">Border-Box</option>
+    <option value="content-box">Content-Box</option></select>
+</div>
+
+<div class="caja" style="background-color: aqua; display: flex; justify-content: center; align-items: center;">
+    <p>CONTENIDO</p>
+</div>
+
+</body>
+</html>

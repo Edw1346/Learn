@@ -1,0 +1,712 @@
+
+/* Selectores */
+img[src="imagen.png"] {    /* seleccionar un elemento que tenga este atractivo */
+    width: 100px; 
+    } 
+
+img[src$="png"]{
+    width: 100px;   /* seleccionar todos un elemento que termina el atributo ("png")*/
+}    /* seleccionar todos un elemento que termina el atributo ("png")*/
+    
+img[src^="imagen"] {
+    width: 100px;   /* seleccionar todos un elemento que inicia el atributo ("imagen")*/
+}   /* seleccionar todos un elemento que inicia el atributo ("imagen")*/
+
+img[src*="imagen"] {
+    width: 100px;   /* seleccionar todos un elemento que contenga el atributo ("imagen")*/
+}   /* seleccionar todos un elemento que contenga el atributo ("imagen")*/
+
+ul li {    /* seleccionar todos los elemento que están dentro de un ul: sintaxis (elemento dentro de ...)*/
+}    
+    ul > li {    /* seleccionar todos los hijos directos de un ul: sintaxis (hijo de padre)*/
+    }   
+    ul + li {    /* seleccionar al elemento adyacente del ul: sintaxis (el siguiente elemento), hermano directo */
+    }
+    ul ~ li {    /* seleccionar a todos elementos adyacente del ul: sintaxis (los siguientes elementos) hermanos directos */
+    }
+    p, h1 {    /* seleccion múltiple: sintaxis (elementos específicos) */
+    }
+     /* Sé puede combinar los selectores: > + ~  */
+    
+    
+    /*  Herencia, los hijos pueden heredar estilos del padre */
+    
+p {
+    color: inherit;      /*  Heredar estilos del padre, la gran mayoría de elementos tiene esta propiedad por defecto*/
+    color: initial ;     /*  Aplica el estilos inicial del elemento,  es decir, no hereda los estilos del padre*/
+    color: unset;      /*  Aplica la propiedad por defecto de herencia del elemento,  es decir, si por defaul es initial se queda así y lo mismo con inherit*/
+    color: revert;      /*  Aplica el estilos del usuario,  los que ha puesto en @face, sino lo deja en inherit*/
+    }
+    /* El estilo se aplica siempre que sea la más reciente a las nueva de otras que afecta a ese elemento, efecto cascada*/
+    
+    
+    
+    /* CASCADA: La regla que se aplica es la que tiene mayor especificidad y la que esté de último o la más reciente*/
+    
+    /*Capa 1 atributo*/
+    h1 {
+     color: blue !IMPORTANT; /* El !IMPORTANT tiene la 1 de esta capa en espeficidad, la más alta  */
+    }
+    
+    /*Capa 2 estilos en linea*/
+     /*<h1 style="color:blue; >  El style en linea tiene el 1 de esta capa en especifidad  */
+    
+    /*Capa 3 Estilos en bloque del mismo documento HTML. Este bloque debe de estar después de la url de la hoja de estilo*/
+    /*<style>*/
+    h1 {
+    color: blue; /* Los estilos en bloque tiene la 1 de esta capa en espeficidad */
+    }
+    /*</style>*/
+    
+    /*Capa 4 Estilos de una de estilos*/
+    #par-1 {
+    color: red;  /* El ID tiene la 1 de esta capa en especifidad  */
+    }
+    .par-1 {
+     color: blue; /* Las clases tiene la 2 de esta capa en espeficidad  */
+    }
+    h1 {
+     color: blue; /* El elemento tiene la 3 de esta capa en espeficidad  */
+    }
+    
+    /*Capa 5   Estilos definidos por el usuario*/
+    @font-face {
+    /*Extensión, estilos y configuraciones */ /*  Los estilos que tiene el usuario, están en esta capa */
+    }
+    
+    /*Capa 6 Estilos que le da el navegador*/
+    /* Los estilos que le da el navegador a los elementos, la especificidad más baja*/
+    
+    
+    /* ESPECIFICIDAD: Se aplica la regla con mayor especificidad sin importar el orden de declaracion*/
+    
+    .h1 {
+    color: red;  /* Tiene la especificidad igual  */
+    }
+    .h1 {
+     color: blue; /*  Tiene la especificidad igual pero este aplicar el estilo por ser el más reciente */
+    }
+    
+    /* pero  */
+    
+    .par-1 {
+    color: red;  /* Tiene la especificidad más alta, este se aplica  */
+    }
+    .h1 {
+     color: blue; /*  Tiene la especificidad baja pero no se aplicar aunque es el más reciente */
+    }
+    
+    /* El estilo aplicado es el que tenga más especificidad   */
+    
+    
+
+/*  PSEUDO CLASES: Seleccionar por un estado, se representa con 2 puntos; elemento:pseudo-clase*/
+    
+    h1:hover  /* Aplica los estilos cuando el cuerpo cuerpo encima del elemento  */
+    h1:active  /* Aplica los estilos cuando se da clic al elemento  */
+    li:firts-child  /* Aplica los estilos al primer hijo del elemento  */
+    li:last-child  /* Aplica los estilos al último hijo  del elemento  */
+    li:ntj-child(x)  /* Aplica estilos a los hijo específico (x), en patrón (xn: 3n cada 3 se aplica a 1) y hacer operaciones  */
+    li:nth-of-type(x) /* Aplica los estilos a los hijos específicos (x) que sean del mismo tipo de elemento  */
+    li:not(.clase)  /* Aplica los estilos a los hijos excepto al hijo (x)  del elemento  */
+    div:empty  /* Aplica los estilos a elemento vacios */
+    :root   /* Aplica estilos a todos los elemento, ya que es el elemento raiz */
+    input[type="chechbox"]:checker  /* Aplica estilos al input, cuando está marcado */
+    :root   /* Aplica estilos a todos los elemento, ya que es el elemento raiz */
+    a:link   /* Aplica los estilo si el enlace no está visitado  */
+    a:visited   /* Aplica los estilo si el enlace está visitado  */
+    input:focus /* Aplica los estilo si el elemento está siendo manipulado o se inserta datos  */
+    input:enabled /* Aplica los estilo si el input está activado  */
+    input:disabled /* Aplica los estilo si el elemento está inactivo  */
+    video:fullscreen /* Aplica si esta en pantalla completa */
+    input:enabled /* Aplica los estilo si el input está activado  */
+    input:invalid /* Aplica los estilo si los datos del input no cumple con su formato  */
+    input:valid /* Aplica los estilo si los datos del input cumplen con su formato  */
+    /*  se pueden buscar más sepdouclases en developer.mozilla.org/es/docs/web/CSS/Pseudo-Classes*/
+    
+    section:is(.elemento1,elemento2, elemento3) /* Aplica estilos a todos los elemento específico que tenga el padre*/
+    section:where(.elemento1,elemento2, elemento3) /* Es lo mismo que el is pero tiene menos especificidad  */
+    section:has(.elemento1)  /* Sé aplica los estilos solo si contiene el elemento que está en has, es como un condicional*/
+    
+    
+    /*  PSEUDO ELEMENTO: es una parte de un elemento, se representa con doble 2 puntos; elemento::pseudo-elemento*/
+    
+    h1::first-letter /* Aplica los estilos a la primera letra */
+    p::first-line/* Aplica los estilo a la primera línea */
+    h1::selection  /* Aplica el estilo cuando se seleccione o marque con el cursor algún elemento  */
+    input::placeholder   /* Aplica los estilos al placeholder de un input*/
+    li::marker  /* Aplica estilos a los puntos (ul) o al orden (ol) de una lista  */
+    input::spriterror  /* Aplica estilos a elementos con errores ortográficos  */
+    input::grammarerror  /* Aplica estilos a Error gramaticales */
+    h1::before  /* Coloca estilo o contenido antes del elemento */
+    h1::after  /*  Coloar estilos o contenido despues del elemento*/
+    
+        
+    /* METODOLIA BEM: Block element modifire, forma específica de trabajar */
+    
+    /* Si hay elemento que necesita manejar estilos diferentes pero tiene muchos otros estilos en común, crear una base o estilos predefinidos para ambos elementos y después modificarlos independientemente como un botón login y register. Reutiliza código, se simplificar su especificidad, código más elegible*/
+    /*  BEM, se compone de 3 parte: Bloque (block), es grupo de elementos que no dependede de nadie para existir y que puede ser reutilizable. Elemento (element) es una parte de un bloque. Modificadores (modifire), forma de modifica los 
+    
+    bloques y elementos (clase modificadora)*/
+    
+    /*  Bloques: los bloques se nombras con la función que cumple por ejemplo (list, navegation, card)*/
+    /*  Elemento: los elementos se nombra según donde se posicionan en el bloque con doble guión invertido (lista__item)*/
+    /*  Modifire: Clase modificadora se nombra con nombre elemento y su modificación con doble guione (item--important) se coloca como la segunda clase del elemento o bloque que se quiere modificar */
+    
+    /*
+    <ul class="list"> 
+    <li class="list__item item--important"></li>
+    <li class="list__item"></li>
+    <li class="list__item"></li>
+    </ul>
+    */
+    
+    .list { 
+    /* Bloques */
+    Padding: 10px;
+    Margin: 10px
+    }
+    
+    .list__ítem {
+    /* Elemento */
+    Color: Black;
+    Font-size: 20px;
+    }
+    
+    .item--important {
+    /* Modificar un elemento, con una clase modificadora  */
+    Color: red;
+    }
+    
+    
+    
+    
+    /*  DISPLAY: Forma en como se comportan un elemento: Block, incline*/
+    /*  Block: ocupa todo el espacio disponible (horizontalmente), salto de línea hace que el elemento siguiente pase a la siguiente línea, los elemento por defecto son Block les afecta los margin, padding, height, width,*/
+    /*  inline:  ocupa la anchura del contenido a lo largo, los padding, margenes, height y width se comportan diferente */
+    /* inline-block: Elementos que se comportan como línea y bloque, pero no inician una nueva línea y ocupan todo el espacio  pero tienen los efectos que puede recibir los elementos bloques, es un elemento en bloque con la características de un inline, ya que puede estar al lado de otro elemento*/
+    /* none: este estado se comportan como que no existe, los elementos hermanos se comportan como si no existiera */
+    
+    a {
+    Display: block; /*  Convertir el a en Block, ya que los enlaces son inline*/
+    Display: incline;
+    Display: incline-block;
+    }
+    
+    
+    
+    
+    /* POSITION: Forma de posicionar un elemento
+    Apilamiento: forma en como se anteponen los elementos, elementos metidos en elementos como crear capas*/
+    
+    /* static: posición por defecto de todos los elemento */
+    .box {
+    Position: static   /* position por defecto de los elementos */
+    }
+    /* absolute: Se sale de la posición que ocupaba */
+    .box {
+    position: absolute;   
+    Top: 30px /* Sé sale de su posición y puede moverse libremente,  el espacio que dejo puede ser ocupado por otro elemento, se empiece a mover desde del contenedor raíz (body) o de un contenedor en el que esté y que contenga un position: relative ya que es un punto de referencia*/
+    }
+    
+    /* relative: Mantener la posición original pero puede moverse y estar encima de otros elementos, según se le indique */
+    .box {
+    Position: relative;
+    top: 5px;  /* mover elementos, en este caso se movería hacia abajo y el espacio que se movió no se puede ocupar*/
+    z-indez: 3;   /* mover el elemento en el eje z (frente o atrás), sirve para hacer que un elemento esté encima o detrás de otro, cada vez que se crean un elementos, este se sobrepone a los elementos anteriores el z-indez puede sobreponer a cualquier elemento sin importar el orden de creación, el valor de index es la capa donde se encuentra el elemento*/
+    }
+    
+    
+    /* fixed: Se sale del flujo de los elemento, igual que el absolute poner fijo el elemento o bloque */
+    
+    .box {
+    Position: fixed; 
+    Top: 30; /* Sé sale de su posición y se mueve según la ventana o el contenido raíz (body), y queda fijo en la posición que se le da aunque se baje el scroll*/
+    }
+    
+    /* sticky: Se sale de su posición, se comporta como un position relative se pone fija (fixed) cuando se supera la medida o distancia indicada, es pegadiza (sticky) */
+    
+    .box {
+    Position: sticky;
+    Top: 20px;  /* Sé pone fija cuando se supera o se pasa el elemento a los 20px y se quita al no superar los 20px */
+    }
+    
+    
+    
+    
+    /*  TRANSICIONES: Cambio en propiedades, pasar de un estado a otro */
+    
+    .box {
+    Transition-property: color; /* El contenedor debe de tener el transition, donde se va a hacer el cambio de propiedades y la propiedad donde se hará la transición. El all hace que todas las propiedades cambien*/
+    Transition-duration: 1s;    /*  Especificar la duración de la transición */
+    Transition-delay: 2s  /* Especificar el tiempo de tardanza del el cambio de propiedad*/
+    }
+    /* cambios de propiedades */
+    .box:hover {
+    Color: red  /* Cambiar el color de letra */
+    }
+    
+    
+    /*  Velocidades de transición */
+    .box {
+    Transition-timing-function: ease;  /* ease: inicia fuerte y termina suave, easi-in: inicia lento y termina frusco. ese-in-out: inicia lento y termina lento, ease-out: inicia lineal y termina fuerte y cubic-bezier(coordenadas): forma de como iniciar y terminar: Puede buscar coordenadas en cubic-bezier */
+    }
+    /* Hacerlo todo en una línea de código transition: property, duration, timing, delay  */
+    
+    
+    
+    /* OVERFLOW: Forma en como desborda el contenido o elemento  */
+    /* El por defaual es el visible, que es visible el desbordamiento. Hidden, vuelve invisible el desbordamiento. Scroll: genera un scroll par ver el contenido que se desbordo. Clip: vuelve invisible el contenido desbordado. Overflow-x: desbordamiento en el eje x. Overflow-y: Desbordamiento en el eje y*/
+    
+    .box {
+    Overflow: auto;   /* El navegador elije el método de desbordamiento, es el más recomendado */
+    }
+    
+    
+    
+    /* CONTROL DE FLUJO DE TEXTO: Forma en como flujo el texto */
+    
+    .parr {
+    Direction: ltr;   /* dirección del contenido y texto: ltr, de izquierda a derecha. rtl: de derecha a izquierda */
+    
+    White-space: nowap; /* nowap: quita los alto de linea que todo quede en 1 línea. Normal: valor por defecto. Pre: Seguí los saltos de línea tal cual esta en el código, aunque se desborde del contenedor. Pre-wrap: respeta los salto de línea del código y pero puede hacer salto cuando la palabra no cabe completa en la línea */
+    
+    Text-overflow: ellipsis;  /* pone los puntos suspensibles (...) cuando se deborda el texto es común usarlo con el overflow: hidden. Clip: esconde el texto desbordado o lo recorta sino cabe la palabra completa */
+    
+    Word-break: break-all;  /* break-all: se cortan las palabras o hace un salto de línea sin importar el corte no respeta las silabas. Keep-all: para otros idiomas para que evite la cortura de palabras. Auto-phrase: rompe palabras bajo el sistema de reconocimiento del navegador.  Break-word: rompe las palabras en silabas si se va a cortar o hace un salto de linea. Anywhere: rompe las palabras que se desbordan*/
+    
+    Text-wrap: balance;  /*  balance: balancea el texto de manera que las palabra encagen entre todo el texto. Pretty: Evita las viudas (palabras que queda sola por el salto de linea) y huérfanos (palabras que queden solar al terminar un texto)*/
+    }
+    
+    
+    
+    /* OBJETCT FIT Y OBJECT POSITION: para adaptar los contenidos multimedia (videos y imagen) */
+    .img {
+    object-fit: fill;  /* propiedad por defecto, se adapta  */
+    object-fit: contain;  /* adapta la imagen para que tenga las dimensiones y que sea visible el contenido*/
+    object-fit: cover;    /*  adapta la imagen completa, resolución grande*/
+    object-position: 50px 30px;    /* mueve la imagen según las medidas dadas */
+    object-fit: none;     /* Mantiene las resoluciones originales*/
+    object-fit: scale-down;  /* Sé queda con la decisión de object-fill más facil: contain, cover o none*/
+    }
+    
+    
+    /* CONTORNOS: borde externo que no cambia el tamaño ni el flujo de elemento, algunos elementos los tiene por defecto como los input al estar en focus, se ubica entre el borde y el margen.*/
+    
+    .box {
+    outline-width: 10px;     /*  ancho */
+    Outline-color: blue;  /* color  */
+    Outline-style: solid;  /*  estilo. No hay que dar none, si quiere quitarlo usa el :focus-visible por temas de accesibilidad*/
+    Outline-offset: 10px;  /* distancia del borde y el outline  */
+    Outline: 1px red solid 3px;  /* Sé puede reducir todo en outline: width, color, solid offset  */
+}    
+    
+    /* FLEXBOX: Modelo de caja, caja flexible, se le aplica al contenedor, el contenedor será como un Block pero el contenido adapta el flex (flex items). También puede hacer inline flex, que el contenedor sea un inline y su contenido flex (flex items). En cada caso se puede eligir la dirección de los items, flex es unidimensional*/
+    
+    .box {
+    Justify-content: none;
+    Align-items: none;
+    Gap: 10 px /* margen entre elemento */
+    }
+    /* row: elemento van de izquierda a derecha. Row-imverse: inicia de derecha a izquierda. Column: dirección de arriba a hacia abajo. Column-reverse: se coloca de abajo hacia arriba*/
+    /*main axis (eje principal) de izquierda a derecha y cross axis (eje cruzado) de arriba a abajo. En row (main axis: izq a der y cross axis: arr a aba). En row-reverse (main axis: der a izq y cross axis: arr a aba). Column (main axis: arr a aba y cross axis: der a izq). Column-reverse (main axis: aba a arr y cross axis: izq a der*/
+
+.box {
+    Display: flex;   /* Los hijos de la caja flex pueden encogerse para adaptarse pero no puede agrandarse,  */
+    flex-direction: row; /* Se organizar horizontalmente y al adaptarse se mueven.  row: van de izquierda a derecha. row-reverse: van de derecha a izquierda */
+    flex-direction: column; /*Se organiza verticalmente y al adaptarse se mueve. column: arriba a abajo. column-reverse: abajo a arriba */
+    Flex-wrap: wrap;  /* Mover el contenido hacia abajo (row o row-reverse) o al lado (column o column-reverse) si el contenedor no sufientemente grande, siempre y cuando el alto del contenido no supere el de el contenedor: wrap: baja el contenido hacia a abajo. no-wrap: no baja la contenido lo mantiene. wrap-reverse: va en contra del fluyó definido (row o column*/
+    flex-flow: row wrap;   /* forma de abreviar el flex-direction y flex-wrap y hacerlo en una sola linea  */
+    Justify-content: center;  /* alinea en el eje principal (horizontal o vertical según el direction): start: inicio. Center: medio o centro. End: final. Space-between: rellena y distribuye los elementos de manera equitativa, que el espacio sea el mismo. Space-around: que tenga un margen y espacio entre los elementos. Space-evenly: Distribuir todos los elementos teniendo el mismo margen y espacio*/
+    Align-items: stretch; /* alinea en el eje secundario (opuesto al principal: row o column), útil para una fila de items: stretch (defecto): los item se estiran para rellenar el contenedor sino tienen un height (alto). Start: posiciona al inicio. Center: centrado. End: al final. Baseline: se alinea según la línea base del texto (se coloca todo el texto en la misma altura aunque el contenido se agranda y se vea disparejo con todo el contenido del contenedor), este lo alina aunque haya texto grande y pequeño,  se alinea.*/
+    Align-content: stretch;  /* alinear en el eje secundario (horizontal): stretch, start, en, center, space-around, space-between, space-evenly.  */
+    Gap: 10px  /* margen entre los hijos flex, es como ver un padding: valor del margen o separación*/
+}
+
+.son-box-flex {
+    padding: 50px;  /*  Si en los hijos de la caja flex reciben padding ya no se van a encoger para adaptarse a la caja  */
+    order: 1; /* Cambia el orden de como se visualiza los hijos flex, útil para condiciones query alternando su orden: el valor es el número de secuencia que va a cumplir, es decir, si es 3 se va a ver en la posición 3 del contenedor flex*/
+    Flex-grow: 2; /* Permite cuanto se puede agrandar al adaptarse (por defecto es 1). El espacio disponible de un contenedor se divide por el valor de grow de cada hijo flex : los valores es el número de espacio disponible en el contenedor*/
+    Flex-shrink: 3; /* Permite cuanto se va a encoger al adaptarse (por defecto es 1) según el número de espacio: el valor es el número de espacio a encoger en el contenedor*/
+    flex-basis: auto; /* Definir el tamaño base de los hijos flex de un contenedor flex  (por defecto es auto), es como un sustituto de width (si esta en row) o height (si esta en column): el valor del ancho */
+    Flex:  1 1 200px  /* forma abreviaturas de flex grow, shrink, basis. valores: 1p grow, 2p shrink, 3p basis.*/
+}
+
+.item-2 {
+    Align-self: start;  /* alinea o define una posición de un elemento específico, solo funciona cuando el contenedor tiene el align-item. Valores: start, center, end, stretch, space-around, space-evenly, space-between */
+}
+
+ /* Bloques flexibles: Hacer que un bloques se adaptable y su contenido */
+
+.box {
+    min-width: 200px;   /* Significa que el bloque se puede estirar como un mínimo de 200px y el máximo dependiendo la resolución o la ventana del navegador*/
+    max-width: 300px;  /* Significa que el bloque se puede estira como un máximo de 200px y un mínimo dependiendo de la resolución o ventana del navegador*/
+/* Cuando se combina el max y min el bloque se estira hasta los valores indicados. Igual en los height, pero en lo general es mejor no colocar un height fijo (ya que si hay mucho contenido se desborda), a lo mucho es mejor usar el min-height (ya que hay un mínimo de alto y si hay más contenido se va a adaptar*/
+}
+
+
+
+ /* MULTIMEDIA FLEXIBLES: Adaptar imágenes y videos */
+.img {
+    max-width: 100%;  /* Que la imagen se adapte como máximo del 100% a la resolución del dispositivo*/
+    height: auto;  /* Para que el navegador maneje el alto dependiendo la resolución del dispositivo*/
+} 
+
+/* Para evitar que se rompa, ya que los video se dimensiónan diferentes y eso afecta cuando hay otros dispositivos con más pequeña resolución. En ese caso se hace: Se usa un contenedor y el aspect ratio */
+.contenedor {
+    max-width: 100%;  /* Que el contenedor se adapte el 100% a la resolución del dispositivo*/
+    aspect-ratio: 16/9;  /* Tener el aspecto de radio para adaptar el video: con la resolución 16/9*/
+}
+
+.video {
+    width: 100%;  /* Adapta un 100% al contenedor*/
+    /* Esta es la forma más moderna de hacer flexible un video y un iframe*/
+}
+
+
+
+ /* MEDIA QUERY: condicion que si  cumple cambios estilos */ 
+ /* Sintaxis: @media not/only  madiatype and (expresiones) */
+ /*not: excluye a los dispositivos que no cumplen con la consulta, si no cumple la condición no apliques los estilos , only: para navegador antiguos no lo aplican. Mediatype: medio que se indica la consulta, print (imprimir), screen (medida del dispositivo). And para añadir más condiciones. Expresiones para hacer un condicion más específica */
+
+@media screen and (max-width: 500px) {
+ /* Si la pantalla es de máximo 500px, se aplican estos estilos */ 
+body {
+ font-size: 20px;  /* Aumentar el tamaño de letra */
+} 
+} 
+
+
+/* MOBILE FIRTS: Hacer que una página que primero se vea bien en los móviles y después en resolución más grandes, que la primera versión sea para tamaño de celulares*/
+/* DESK TO FIRTS: Hacer la página que primero este adaptada en computadora y después en resolución más pequeñas que la primera versión sea para tamaño de computadoras*/
+
+
+ /*  FEATURE QUERY: Herramientas que permite dar código si el navegador permite una funcionalidad */ 
+@supports (color: oklch(30% 0.2 30)) {   /* Si el navegador soporta el color, ejecuta los estilos*/
+   /* codigo */
+}
+
+@supports not (color: oklch(30% 0.2 30)) {   /* Si el navegador no soporta el color, ejecuta los estilos*/
+   /* codigo */
+}
+ /* Útil cuando necesita poner un estilo nuevo que puede no ser soportado por el navegador */
+
+
+/* CONTAINER  QUERY: Media de contenedor, aplicar estilo si un elemento cumple debieras condiciones (resolucion)*/ 
+.container {
+    container-type: inline-size;  /* Condicionar (medias) estilo por su: size dimensiones en Block y inline (ambas), inline-size por su ancho o en línea (inline), normal no puede hacer los media container*/
+}
+
+.container {
+    container-type: inline-size;  
+    container-name: main;   /* Colocar un nombre, cuando se quiere dar estilos a varios contenedores */
+}
+
+@container (max-width: 500px) {
+    p {
+        /* codigo */
+    }
+}
+
+ @container main (max-width: 600px) { /* Solo al que tiene el container-name: main */
+    p {
+        /* Estilos  */
+}
+}
+
+
+/* GRID: Forma de estructura contenido en 2 dimensiones: filas y columnas*/
+
+/* grid-container, elemento que contiene a los hijo es un contenedor cuadricula*/
+/* grid-item, elemento hijos de la cuadrícula, cada una puede ocupar una o más espacios (filas y columnas) en la cuadricula*/
+/* Líneas, son los bordes de las cuadrícula y los item separan los items unos de otros*/
+/* grid-track, son columnas o filas (1 fila o 1 columna) */
+/* grid-cell, espacio real donde se coloca el elemento (grid-item) */
+/* grid-area, partes del grid-container que puede combinas varios grid-cell */
+/* Fila explícita, es una fila completa sin columnas */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 100px 200px 300px;   /* Definir las columnas cada valor defina una columna. Solo defina lo largo de cada items y la división en columna */
+    grid-template-rows: 100px 200px 300px;   /* Definir las filas cada valor defina una fila. Solo defina lo alto de cada items, por defecto todos los grid-items son filas  */
+    
+    /* Valores: auto, en este caso el navegador reparte el espacio, según espacio mínimo y lo que sobre lo distribuye a los hermanos items de la fila o la columna. fr, divide el espacio equitativa y el espacio lo va cambiando y distribuyendo según el contenido y se puede dar más espacios (fracciones a cada items) y las demás fracciones se reparten en los hermanos. repeat, repite las medidas sin tener que escribirlas todas, repeat(veces, medidas), ej repeat(4, 1fr) o en patrones repeat(2, 100px 50px). Minmax, poner un mínimo y máximo, minmax(medida mínima, medida maxima), ej minmax(100px, 300px). min-conten . max-content */
+    }
+    
+    /* GRID IMPLÍCITOS Y EXPLÍCITO  */
+    /* GRID EXPLÍCITO: Contener celda sin contenido (Definir en el contenedor las columnas y filas, pero no tener los grid-item suficientes para cumplir con las columnas y filas establecidas)  */
+    /* GRID IMPLÍCITOS: Contener celda que no está definidas (Definir en el contenedor las columnas y filas, pero tener más grid-item que sobrepasan las columnas y filas establecidas)  */
+    
+    /* Aún sin importar si es grid explícito o implícito, se puede dar una altura (row) o anchura (columna) */
+    .grid-container {
+    grid-auto-rows: 100px;  /* Asignar el tamaño de alto de cada grid-items (rows) de las filas implícitas o explícitas*/
+    grid-auto-columns: 100px;  /* Asignar el tamaño de ancho de cada grid-items (column) de las filas implícitas o explícitas*/
+    grid-auto-flow: row;  /* Si Establece el método de agrega más grid-items implícitos o explícitos: rows, lo añadido son filas. column, lo añadido son columnas. dense: Rellena los espacios en blanco con los grid-items*/
+    grid-auto-flow: dense;  /* Método de agrega más grid-items implícitos o explícitos: si un grid-ítem tiene más grid-cell si se llega a romper o deja grandes espacio, dense agarra otros items que puedan rellenar esos espacios, pero si afecta el orden de los grid-items a menos se configure que aún así respete el orden .column, lo añadido son columnas. dense: Rellena los espacios en blanco con los grid-items*/
+    }
+    
+    
+    /* GRID GAP: Espacios entre los grid-items como un padding */
+    .grid-container {
+    column-gap: 20px; /* Si quieres espacios entre las columnas */
+    row-gap: 20px; /* Si quieres espacios entre las filas */
+    gap: 20px; /* Si quieres espacios entre las columnas y filas, valores: 1 valor, dar espacio a la column y filas. 2 valores dar al column rows (el primer valor es a colmn, el segundo es row) */
+    }
+    
+    /* GRID-DINAMICO: Hacer que cuando se agregen grid-items se rellene el espacio */
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150, 1f));   /* El auto-fit hace que cuando se agregen más grid-items se vaya creando nuevas filas, mete grid-item al grid-container), siempre es recomendado por un fr en el máximo en minmax*/
+    grid-template-columns: repeat(auto-fill, minmax(150, 1f));   /* El auto-fill hace que a medida que haya más espacio crea columns vacías para rellenar agrega más grid-items vacios al grid-container*/
+    }
+    
+    
+    /* GRID COLUMN Y GRID ROW: Forma en como modificar las separaciones o líneas que dividen (separa) cada grid-item  */
+    /* grid-column; líneas que separa las columnas, inicia desde 1 (es el primer grid-item que pega con el borde de la pantalla) hasta las que quepan en la pantalla*/
+    /* grid-row; líneas que separa las filas, inicia desde 1 (es el primer grid-item que pega con el borde de la pantalla) hasta las que quepan en la pantalla*/
+    
+    .grid-item {
+    grid-column-start: 1;  /* iniciar el grid-item en línea 1 en columna */
+    
+    grid-column-end: 2;  /* terminar el grid-item en línea 2 en columna */
+    grid-column-end: span 2;  /* Posicionar el grid-item en línea 2 en columna, es decir, inicia de la línea 1 (grid-column-start) y ocupar 2 grid-cell*/
+    grid-column: 1/span 2;  /* Forma de abreviar todo */
+    /*  Este es el efecto de ocupar 2 espacios de un grid-cell para un grid-item en columna (ancho) */
+    }
+    
+    .grid-item {
+    grid-row-start: 1;  /* iniciar el grid-item en línea 1 en fila */
+    grid-row-end: 2;  /* terminar el grid-item en línea 2  en fila */
+    grid-row-end: span 2;  /* Posicionar el grid-item en línea 2 en fila, es decir, inicia de la línea 1 (grid-column-start) y ocupar 2 grid-cell*/
+    grid-row: 1/span 2;  /* Forma de abreviar todo */
+    /*  Este es el efecto de ocupar 2 espacios de un grid-cell para un grid-item en filas (alto) */
+    }
+    
+    /* Para unir bien un grid-cell se usa el código de esta manera: si queremos aumentar lo de ancho es con; grid-column-start y grid-column-end o grid-column. Si es de alto es; grid-row-start, grid-row-end o grid-row. Pero usar los 4 lados es: grid-row-start, grid-row-end, grid-column-start y grid-column-end o grid-row y grid-column */
+    /* Cuando se unen grid-cell para un grid-items, los demás grid-items se correndo o agregado otra columna */
+    /* Si se coloca imágenes en los grid-item, tiene que tener el contenedor y la imagen adentro, para que la imagen se adapta al contenedor y no hayan errores*/
+    
+    
+    /* GRID AREA: Permite hacer un layaout donde establecemos como dividir las filas y columnas*/
+    .grid-item {
+    /* Por cada doble comillas ("") es una fila, y por cada palabra es una columna*/
+    grid-template-areas: "header header header"  /* La 1° fila, tiene 3 columna*/
+    "nav main aside"   /* La 2° fila, tiene 3 columna*/
+    "footer footer foorte";  /* La 3° fila, tiene 3 columna*/
+    /* El número de fila es cuestión personal o de objetivos, pero el de columna, se busca coherencia así todas las filas debe de tener el mismo número de columnas*/
+    }
+    
+    header {
+    grid-area: header /* se coloca las posición según el área-templete-area del contenedor (grid-container) */
+    /* Más estilos */
+    }
+    
+    nav {
+    grid-area: nav /* se coloca las posición según el área-templete-area del contenedor (grid-container) */
+    /* Más estilos */
+    }
+    
+    main {
+    grid-area: main /* se coloca las posición según el área-templete-area del contenedor (grid-container) */
+    /* Más estilos */
+    }
+    
+    aside {
+    grid-area: aside /* se coloca las posición según el área-templete-area del contenedor (grid-container) */
+    /* Más estilos */
+    }
+    
+    footer {
+    grid-area: footer /* se coloca las posición según el área-templete-area del contenedor (grid-container) */
+    /* Más estilos */
+    }
+    
+    
+    
+    /* ALINEACION CON GRID: La alineación es entre el eje horizontal (eje x) y en el eje vertical (eje y)*/
+    
+    .grid-container {
+    justify-items: stretch ;  /* hace cambios en el eje horizontal (eje x), los posiciona dentro de los grid-cell de cada grid-item en ese eje: stretch, es el por defecto no posicióna. start, posiona al inicio en dirección del texto (ltr). self-start, posiona al principio teniendo en cuenta la dirección del hijo (grid-item). Center, posiciona al centro. end, posiona al final en dirección del texto (ltr). self-end, posiona al final teniendo en cuenta la dirección del hijo (grid-item). right, posiona a la derecha. left, posicióna a la izquierda. baseline, alinea sobre la línea de texto y se puede alinear en la primera (firts baseline) y la última (last baseline).  */
+    
+    /* Esta es la mejor forma de alinear un grid */
+    place-content: center; /* Para alinear todo el contenido, todos los grid-cell */
+    place-items: center ;/* Para alinear los grid-item,  */
+    place-self: center;  /* Para alinear grid-item especificos*/
+    }
+    
+    .grid-item {
+    justify-self: center;  /* Es para alinear a un hijo (grid-item), se usa para hacer cambios en hijos grid específicos*/
+    }
+    
+    /* Para entender mejor los content, self y item de justify y de aling*/  
+    /* Los justify afecta en el eje horizontal (eje x) y los aling afectan al eje vertical (eje y) */
+    /* Los justify-content y aling-content es para mover todo el contenido, esto va en el contenedor */
+    /* Los justify-item y aling-item es para mover items, esto va dentro del contenedor*/
+    /* Los justify-self y aling-self es para los hijos, útil para modificar a hijo específico y no a todos los hijos de un contenedor*/
+    /* IMPORTANTE: Los justify y aling es para cuando se usa flex y grid */
+    
+    
+    
+    /* SUBGRID: Forma que los hijos de un grid-item, que son hijos del grid-container,  también forme parte de la grilla principal (grid-container) */
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150, 1f));
+    }
+    
+    .grid-item:first-child {
+    grid-area: 1/1/span  2/span 2;  /* Posicionarla */
+    display: grid;   /* Hacer otra caudricula dentro de un grid-item*/
+    grid-template-columns: subgrid;  /* Hacer que las columnas sean parte del grid principal (grid-container) */
+    grid-template-rows: subgrid;  /* Hacer que las filas sean parte del grid principal (grid-container) */
+    }
+    
+    .sub-grid {
+    /* Estilos a los otros grid-item (sub-grid)*/
+    }
+    /* Esto hace que los subgrid sean parte del grid-container, si se cambia estilos a los subgrid afectaría al grid-container evitando que se rompa o que se vea superpuesto*/
+    
+
+
+
+/* ANIMACIONES Y TRANSICIONES */
+
+.box {
+    transition: width 3s step(3);  /* Step es un efecto que hace que la transición sea en partes o pasos */
+    }
+    
+.item:active {
+    width: 100%  /* Si se hace click se cambia el ancho (width) */
+}
+    
+@media (prefers-reduced-motion: reduce) {  /* Reducir las animaciones, solo se pone cuando se activa esa opción en el navegador*/
+    .box {
+        transition: none;  /* Quitar animaciones */
+}
+}
+
+
+
+/* ANIMACION: Darle una ilusión de movimiento de algo inanimado */
+
+/* La transición es cambio de un estado, necesita un evento que lo dispare, pero las animaciones son automáticamente y controlables y repetible */
+    
+.box {
+    animation-name: barra;  /* Asignar el nombre para una animación */
+    animation-duration: 3s; /* La duración de la animación,  la animación inicia una vez cargue la página y se ejecuta una vez*/
+    animation-delay: 3s; /* Tienpo de pausa antes de que se ejecute la animación */
+    animation-fill-mode: backwars;   /* Como quedar o terminar la animación: backwars, inicia con los estilos definidos del elemento, cambia a los iniciales (from) y se queda como el inicio la animación. None, no hace nada. both, inicia con los estilos de inicia de la animación (from) y queda la animación con las últimas propiedades (to)*/
+    animation-timing-function: linear;   /* Forma en como se lleva la animación: línea el cambio es contante*/
+    animation-iteration-count: 3;  /* Veces que se repite la animacion: infinite, es infinito. Un # (numero), las veces que se ejecute la animación*/
+    animation-direction: reverse; /* cambia la dirección de la animación: normal, el por defecto. reverse, alreves. alternate, ejecuta las 2 direcciones (normal-reverse). alternate-reverse, ejecuta en la inversa de las 2 direcciones (reverse-normal)*/
+    animation-play-state: running;  /* Dar play y pausa en la animación: running, inicia o reanuda la animación. paused, para la animación aunque ya se había iniciado*/
+}
+    
+@keyframes llenar-barra {
+from { /*Estilos iniciales de la animación   */
+/* Estilos iniciales */
+}
+to {  /* Estilos finales de la animacion */
+/* Estilos finales */
+}
+}
+
+/*En ves de from y to puede usar porcentaje que mide en que nivel o estado se haran cambios (transiciones)*/
+
+@keyframes llenar-barra {
+0% { /*Estilos iniciales de la animación   */
+    /* Estilos iniciales */
+    }
+30% { /*Estilos iniciales de la animación   */
+    /* Estilos en el cuarto de tiempo de la animacion */
+    }
+70% { /*Estilos iniciales de la animación   */
+    /* Estilos en el 70% de la animacion */
+    }
+100% {  /* Estilos finales de la animacion */
+    /* Estilos finales */
+    }
+    }
+
+
+/* Animación por tiempo: La duración con un tiempo en segundos */
+    
+/* Animación por scroll */ 
+/* Animación avance scroll: La animación tiene la duración dependiendo del avance del scroll */
+    
+.container {
+/* Estilos de animación */
+animation: barra; /* nombre de la animación */
+animation-timeline: scroll (); /* a la animación se le añade el scroll y la duración depende del scroll, pero depende del scroll principal, el scroll con el que se baja todo la página */
+}
+    
+    /* O se puede hacer, que un elemento tenga su propio scroll (que es el scroll del contenedor) y no el principal */
+    
+.container {
+animation: barra; /* nombre de la animación */
+Overflow-y: scroll;  /* Para tener el scroll del contenedor */
+height: 50vh;  /* Que el alto del contenido sea menor al contenedor para que se desborde*/
+scroll-timeline-name: --containerScroll; /* valores: Asignarle un nombre, */
+scroll-timeline-axis: block; /* Elige el eje del scroll: inline, es horizontal (eje x). Block, es vertical (eje y)*/
+scroll-timeline: --containerScroll block /* abreviar el scroll-timeline. Los valores: Asignarle un nombre, eje del scroll (inline, es horizontal y Block, es vertical)*/
+}
+    
+.item {
+    scroll-timeline: --containerScroll  /* Asignarle el nombre del contenedor*/
+}
+
+@keyframes barra {
+    from {
+    /* Estilos de inicia de la animación*/
+}
+to {
+    /* Estilos finales de la animación*/
+}
+}
+
+
+/* Animación por view: La animación inicia cuando se empieza a aparecer el elemento*/
+    
+.container {
+    /* Estilos de animación */
+    animation: barra; /* nombre de la animación */
+    view-timeline-name: --containerView; /* valores: Asignarle un nombre, */
+    view-timeline-axis: block; /* Elige el eje del scroll: inline, es horizontal (eje x). Block, es vertical (eje y)*/
+    view-timeline: --containerView block; /* abreviar el view-timeline. Los valores: Asignarle un nombre, eje del scroll (inline, es horizontal y Block, es vertical)*/
+    }
+    
+    /* O se puede hacer, que la animación depende de que se vea otro elemento */
+    
+    .container-principal {
+    animation: barra; /* nombre de la animación */
+    view-timeline-name: --containerView; /* valores: Asignarle un nombre, */
+    view-timeline-axis: block; /* Elige el eje del scroll: inline, es horizontal (eje x). Block, es vertical (eje y)*/
+    view-timeline: --containerView block /* abreviar el view-timeline. Los valores: Asignarle un nombre, eje del scroll (inline, es horizontal y Block, es vertical)*/
+    }
+    
+    .container-animacion {
+    view-timeline: --containerView  /* Asignarle el nombre del contenedor*/
+    }
+    
+@keyframes barra {
+    from {
+    /* Estilos de inicia de la animación*/
+    }
+    to {
+    /* Estilos finales de la animación*/
+    }
+    }
+    
+    
+    /* Tiempo de tartanza en las animaciones  */
+    
+    .container {
+    /* Estilos de animación */
+    animation: barra;
+    view-timeline-name: --containerView;
+    view-timeline-axis: block ;
+    view-timeline: --containerView block ;
+    animation-range-start: cover 10%; /* iniciar un 10% después de ver el elemento */
+    animation-range-end: cover 10%; /* termina un 10% antes de ocultar el elemento */
+    /* Valores: contain, la animación inicia según cuanto se vea el elemento. exit-crossing, la animación inicia cuando está ocultándose. Se puede usar valores negativos */
+    /* Para calcular bien los tiempos de animación con animation-range puedes visitar en: view progress timeline range visualizer*/
+    }
