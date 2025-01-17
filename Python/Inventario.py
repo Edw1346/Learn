@@ -11,13 +11,18 @@ def agregar_productos(nombre, precio, cantidad, categoria, observacion):
     inventario.append(producto)
     print("Agregado")
 
-def actualizar_producto(producto_a_actualizar):
+def búsqueda_items:(item, registro):
     ind = -1
+    for i in registro:
+            ind += 1
+            if i['nombre'] == item:
+                 return True
+
+def actualizar_producto(producto_a_actualizar):
+    global inventario 
     nueva_busque = producto_a_actualizar.capitalize()
     if producto_a_actualizar.lower() != 'salir':
-        for i in inventario:
-            ind += 1
-            if i['nombre'] == nueva_busque:
+        if búsqueda_items(producto_a_actualizar,  ):
                 pregunta1 = input(f"{nueva_busque} fue encontrado con exito. Que desea actualizar: (1) Nombre. (2) Precio. (3) Cantidad. (4) Categoria. (5) Observacion: ")
                 if pregunta1 == '1' or pregunta1.lower() == 'nombre':
                     nuevo_val = input("Ingrese el nuevo nombre: ")
