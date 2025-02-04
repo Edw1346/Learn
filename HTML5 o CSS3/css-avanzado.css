@@ -23,4 +23,135 @@ backdrop-filter: blur(0.5)  /* Desemfoca el fondo o el contenido detrás*/
 /* funciones del filter: drop-shadow, blur, constrat, brightness, grayscale, sature, opacity, inviert, hue-rotate y demas*/
 }
 
+
+
 /* TRASFORMER */
+
+.item {
+transform: scale(2);  /* agranda el tamaña, multiplica sus medidas o se puede usar el estilo directo scale: xy;  o scale: x y; */
+transform: scaleY(2);   /* agrandó sólo a lo alto */
+transform: scaleX(2);   /*  agranda sólo en lo ancho */
+transform: scale3d(2);  /* Para objetos 3d */
+transform: skew(20deg);   /* dobla el elemento y su medida son los grados (deg) */
+transform: skewY(20deg);   /* dobla el elemento en el eje y, horizontalmente y su medida son los grados (deg) */
+transform: skewY(20deg);   /* dobla el elemento en el eje x, verticalmente y su medida son los grados (deg) */
+transform: rotate(20deg); /*  rota los elementos, se puede usar el estilo directo: rotate: 10deg */
+transform: translate(200px);  /* traslada el elemento, o usar el estilo directo: translate: xy; o translate: x y;*/
+transform: translateX(200px);  /* translada en el eje x, horizontalmente*/
+transform: translateY(200px);  /* translada en el eje y, verticalmente */
+transform: perspective(200px); 
+}
+
+
+
+/* MIN, MAX Y CLAMP Compara 3 valores y se va quedando con el mínimo, máximo y valor ideal */
+/*  Min, entre los valores elige el pequeño es como tener un width y un min-width. Max, entre los valores elige el más alto es como tener un width y un max-width. Clamp, entre 3 valores se establece un mínimo, ideal y máximo.  */
+
+.box {
+width: min(400px, 100%); /* Entre los valores elige el mínimo, según las medida en el de la ventana del navegador */
+
+width: max(500px, 100%); /* Entre los valores elige el máximo, según las medida en el de la ventana del navegador */
+width: clamp(500px, 100%, 700px); /* Entre los valores: 1v es el mínimo, 2v es el ideal, 3v es el máximo, y estará alternado estre estas medida segun el tamaña de la ventana del navegador */
+/* Lo mejor es usar medias relativas (rem, em, etc) */
+/* Sé puede usar en cualquier estilo que necesita tamaños y evitar usar muchos query*/
+} 
+
+
+/* VARIABLES: Almacenar estilos y reutilizarlos y pueden afectar según su entorno (donde fue creada)*/
+
+body {
+--color-principal: #48e;   /* Sé crea una variable que afecta al contenedor body */
+--tamaño-principal: 16px 
+}
+
+.box1 {
+color: var(--color-principal)  /* Asignar el valor de la variable */
+}
+
+.box2 {
+--color-principal: #666;   /* Crea una variable en este entorno que tiene el mismo nombre*/
+color: var(--color-principal)  /* Asignar el valor de la variable */
+}
+
+.box4 {
+font-size: var(--tamaño-principal);
+}
+
+/* El root es una variable que afecta a todo el html, es mejor usarla aquí que en el body, a menos que sea necesario */
+:root {
+--color-principal: #48e;  
+}
+
+
+/* O crear una variable con property, hol dythi*/
+@property --color-principal {
+syntax: <color>;   /* A que estilo se va a aplicar la variable o que espera tener para usar la variable*/
+Inherits: false;  /* Si la variable le de herencia a los hijos (items): True, lo hereden. False, no lo hereden*/
+initial-value: #48e;  /* Valor inicial de la variable */
+}
+
+
+
+/* CALC: Hacer operaciones básicas */
+.box {
+width: calc(500px + 50%);  /* Suma unidades tanto absolutas como relativas */
+height: calc(100vw - 300px);  /* Resta */
+font-size: calc(1.6em * 2);  /* Sé puede multiplicar y dividir */
+width: calc(100vw - camp(2.4rem, 2.2vw, 4rem))  /* Es útil para calcular medida con mínimos, máximo y ideales*/
+}
+
+
+
+/* PROPIEDADES DEL SCROLL */
+.box {
+scroll-behavior: smooth;  /* La sensación de movimiento solo funciona con los enlaces */
+scrollbar-color: #48e #fff;  /* Color del scroll, valores: 1v color del scroll, 2v color del espacio donde se desliza el scroll*/
+scrollbar-width: thin;  /* Anchura del scroll, solo hay 3 valores: auto, por defecto, thin, es delgada y none, no hay anchura */
+}
+
+
+/* INITIAL LETTER */
+p::first-letter {  /* Es siempre es necesario usarlo así */
+initial-letter: 2 2;  /* Afecta el tamaño de la primera letra, valores: 1v líneas a ocupar y 2v de que línea empezar*/
+}
+
+
+/* UNIDADES DEL VIEWPORT */
+/* shw: medida que mide el borde inferior de la pantalla hasta la barra de navegación y cuando se contrae la barra se mantiene y no se adapta*/
+/* ihw: medida que mide el borde inferior de la pantalla hasta el borde exterior (extendido) y cuando aparese la barra de navegación y no adapta la medida del viewport */
+/* dhw: medida que mide el borde inferior de la pantalla y el borde exterior sin importar el que la barra se desplaza (suma su espacio) o se contrae (resta su espacio), adapta su medida */
+/*   */
+
+.box {
+width: 100dvw;  
+height: 100dvh;
+}
+
+
+/* COLOR-MIX: Combina colores */
+.box {
+color: colo-mix(in rgb, color porcentage, color porcentage);  /* Sintaxis: in es el el método, rbg es el método de color, puede ser rgb shl, srgb, rgba y demás, después los colores y un porcentaje de ellos */
+color: color-mix(in srgb, #48e 30%, #f44 30%)  /* Combinar colores */
+/* Útil para crear colores para fondos, tipografía y demas) */
+/* En los métodos de in puede usar más como: color-mix(in hsl longer hue, ...) o, color-mix(in hs shorter hue, ...)
+Para saber el máximo provecho es útil saber teoría de colores */  
+}
+
+
+/* MIN-CONTEN,  MAX-CONTENT, FIT-CONTENT*/
+
+
+/* MIX-BLEND-MODE */
+/*   */
+/*   */
+
+
+/* CLIP PATH:  */
+
+Img {
+clip-path: circle(50%);  /* Calcula la distancia (el centro de la imagen y el borde) y con eso formar el circulo*/
+clip-path: circle(50% at 100px 50px);  /* El at coloca las coordenadas en el eje x y el eje y en donde se hará el circulo, valores at: 1v eje x, 2v eje y. Funciona con medida absoluta y relativas*/
+clip-path: elipse(50% 30% at 100px 300px);  /* Valores: 1v alto, 2v ancho, 3v eje x, 4v eje y*/
+/* Por lo general se usa generadores de CLIP PATH, en el cual creamos la figura que quiere tener y copiar el código html: clip path generator en el navegador*/
+/* Útil para crear figuras con imágenes */
+}

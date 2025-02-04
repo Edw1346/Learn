@@ -1,0 +1,131 @@
+<!--Comentario de linea-->
+
+<!-- 
+Comentarios de lineas
+-->
+
+<!--
+    Elemento: es un componente o etique completa: <tag> contenido </tag>
+    Atributos: caracteristica del elemento: <tag "atributo"="valor"> contenido </tag>
+-->
+
+<!DOCTYPE html> <!--Instruccion de que es HTML5-->
+
+<html> <!--Etiqueta de inicio de HTML-->
+
+<head> <!--Aqui van los metadatos, instrucciones al navegador-->
+    <title>Document</title>     <!--Titulo de la pagina-->
+</head>
+
+
+<body>
+
+<!--ENCABEZADO Y PARRAFOS-->
+
+<!-- Los encabezados son titulos a las diferentes secciones de la pagina, cada seccion tiene un cabezado y 
+las subecciones tambien necesitan h3, entre mas subsecciones hay mas encabezado pequeños ocupa -->
+
+<h1>Encabezado 1 (MAS GRANDE)</h1> <!--Solo debe de hacer un h1 por pagina-->
+<h2>Encabezado 2 (MAS PEQUEÑO)</h2>
+<h3>Encabezado 3 (MAS PEQUEÑO)</h3>
+<h4>Encabezado 4 (MAS PEQUEÑO)</h4>
+<h5>Encabezado 5 (MAS PEQUEÑO)</h5>
+<h6>Encabezado 6 (MAS PEQUEÑO)</h6>
+
+<!--Parrafos contenido que describe-->
+<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus consequatur, 
+    voluptas animi repudiandae iure optio fuga nisi veniam odio excepturi provident, 
+    in praesentium porro quam architecto pariatur rem eaque ipsa?</p> <!--Aqui se uso lorem-->
+
+
+
+
+<!--LISTAS-->
+
+<!--Lista ordenada, tiene un orden numero o simbologico, usadas en las que el orden importa-->
+<lo>
+    <li>Elemento 1</li>   
+    <li>Elemento 2</li>   <!--li es el elemento de las lista, el tipo de lista-->
+    <li>Elemento 3</li>
+</ol>
+
+<!--Lista desordenada, no tiene un orden, se identifica porque solo tiene un punto (O) grande al inicio, no importa el orden-->
+<ul>
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>   <!--li es el elemento de las lista, el tipo de lista-->
+    <li>Elemento 3</li>
+</ul>
+
+<!--Anidar listas-->
+<lo>    <!--Lista ordenada-->
+    <li>Elemento 1</li>   
+    <li>Elemento 2</li>   
+    <li>Elemento 3</li>
+    <!--Meter una lista desordenada-->
+    <ul> 
+        <li>Elemento 1, de otra lista</li>
+        <li>Elemento 2, de otra lista</li>   
+        <li>Elemento 3, de otra lista</li>
+    </ul>
+</ol>
+
+<ul>
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>   
+    <li>Elemento 3</li>
+    <lo> <!--Lista ordenada dentro de otra lista-->
+        <li>Elemento 1, de otra lista</li>
+        <li>Elemento 2, de otra lista</li>   
+        <li>Elemento 3, de otra lista</li>
+    </ol>
+</ul>
+
+
+<!--ENLACES-->
+<a href="Ejemplo" target="_parent" title="Discripcion">Contenido</a>  <!--Lo que va entre las etiquetas es el contido que se va a ver-->
+<!--El atributo href se coloca la url del recurso para redirigirlo-->
+<!--El atributo target es la forma de presentar el recurso: _blank, _parent, _self (defecto), _top-->
+<!--El atributo title describe el elemento, se ve cuando se coloca el curso encima del elemento-->
+
+<!--Enlaces absoluto: protocolo, www, dominio y extension: https:www/youtube.com-->
+<!--Enlace relativo: tiene la ruta del recurso y extension: index.thml-->
+<!--Moverse en las rutas: atras en directorios = ../ y avanzar en directorios = / -->
+
+<a href="Ejemplo#id_Seccion"></a> <!--Para acceder a una seccion de una pagina, con el id de esa seccion-->
+
+
+
+<!--IMAGENES-->
+
+<img src="" alt="" title=""> <!--img no necesita una tag de cieero, no tiene contenido-->
+<!--El atributo href se coloca la url del recurso para mostrarlo-->
+<!--El atributo alt es un contenido alternativo sino aparece la imagen-->
+<!--El atributo title describe el elemento, se ve cuando se coloca el curso encima del elemento-->
+
+
+<!--FORMULARIO-->
+
+<form action="" method=""></form> <!--action, tiene el archivo que recibe los datos y method el metodo de envio (GET o POST)-->
+
+<input type=""><!--Entrada para recibir datos-->
+<!--Type, es el tipo de input: text, number, password, email, date, color, checkbox, datatime, file, image, mounth, 
+radio, range, reseach, tel, time, url, week -->
+<!--Lo mas comunes-->
+<input type="number" placeholder="Hola">
+<input type="password" name="password">
+<input type="email" minlength="2">
+<input type="date" maxlength="50">
+<input type="color" required>
+<input type="date">
+<input type="file">
+<input type="radio">
+<input type="checkbox">
+<input type="range">
+
+<!--Requiered, obliga a llenar el campo segun el input, evitando que envie el formulario-->
+<!--name, el nombre que recibe el servido para nombrar el campo, todos los input deben de tenerlos-->
+<!--minlength, caracteres minimos y maxlength, caracteres maximo-->
+<!--placeholder, frase como sobra en el campo, se usa para dar un ejemplo. No en todos los input sirve-->
+
+</body>
+</html>
