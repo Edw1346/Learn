@@ -1,0 +1,99 @@
+	os – Manejo del sistema operativo
+
+	sys – Acceso a funciones del intérprete de Python
+
+	json – Manejo de datos en formato JSON
+
+	re – Expresiones regulares
+
+	datetime – Manipulación de fechas y horas
+
+	time – Funciones de tiempo y pausas
+
+	random – Generación de números aleatorios
+
+	collections – Estructuras de datos avanzadas
+
+	itertools – Iteradores y combinaciones eficientes
+
+	functools – Funciones de orden superior y optimización
+
+	math – Operaciones matemáticas avanzadas
+
+	statistics – Cálculos estadísticos
+
+	decimal – Aritmética decimal precisa
+
+	fractions – Manejo de fracciones
+
+	logging – Registro de eventos y depuración
+
+	argparse – Análisis de argumentos de línea de comandos
+
+	configparser – Manejo de archivos de configuración
+
+	pathlib – Manipulación de rutas de archivos
+
+	shutil – Operaciones con archivos y directorios
+
+	subprocess – Ejecución de procesos externos
+
+	threading – Programación con hilos
+
+	multiprocessing – Programación paralela con múltiples procesos
+
+	queue – Colas de tareas y estructuras FIFO/LIFO
+
+	asyncio – Programación asíncrona y concurrencia
+
+	socket – Comunicación en red y sockets
+
+	requests – Peticiones HTTP de manera sencilla
+
+	urllib – Manejo de URLs y peticiones web
+
+	http.server – Servidor HTTP básico
+
+	xml.etree.ElementTree – Procesamiento de XML
+
+	csv – Lectura y escritura de archivos CSV
+
+	sqlite3 – Base de datos SQLite integrada
+
+	pymysql – Conexión a bases de datos MySQL
+
+	sqlalchemy – ORM y manejo avanzado de bases de datos
+
+	pandas – Análisis y manipulación de datos
+
+	numpy – Cálculos numéricos y matrices eficientes
+
+	scipy – Computación científica avanzada
+
+	matplotlib – Gráficos y visualización de datos
+
+	seaborn – Visualización estadística de datos
+
+	PIL (Pillow) – Procesamiento y manipulación de imágenes
+
+	openpyxl – Lectura y escritura de archivos Excel
+
+	xlrd – Lectura de archivos Excel antiguos
+
+	smtplib – Envío de correos electrónicos
+
+	email – Manejo avanzado de correos electrónicos
+
+	hashlib – Algoritmos de hash y seguridad
+
+	hmac – Autenticación criptográfica con HMAC
+
+	base64 – Codificación y decodificación Base64
+
+	jwt – Manejo de JSON Web Tokens (JWT)
+
+	dotenv – Carga de variables de entorno desde archivos
+
+	unittest – Pruebas unitarias en Python
+
+	pytest – Framework avanzado de pruebas
