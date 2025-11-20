@@ -1,0 +1,144 @@
+El módulo requests es una biblioteca de Python que facilita el trabajo con peticiones HTTP. 
+
+Características principales del módulo requests:
+Envío de peticiones HTTP: Puedes realizar peticiones como GET, POST, PUT, DELETE, etc.
+Manejo de parámetros: Puedes enviar parámetros en la URL o en el cuerpo de la solicitud (como en formularios o JSON).
+Manejo de respuestas: Puedes obtener fácilmente el contenido de la respuesta, el código de estado, las cabeceras, etc.
+Manejo de cookies, redirecciones y autenticación: Ofrece soporte integrado para trabajar con cookies, redirecciones automáticas y autenticación. 
+
+import requests 
+
+#Petición POST (enviar datos):
+data = {'username': 'user', 'password': 'password'} 
+response = requests.post('https://api.example.com/login', data=data) 
+print(response.status_code) 
+
+
+
+
+
+#Funciones del módulo requests
+
+# requests.get(url, params=None, **kwargs). Realiza una petición HTTP GET. Se usa para obtener información de un servidor:
+response = requests.get('https://api.example.com/data') 
+print(response.text) 
+
+# requests.post(url, data=None, json=None, **kwargs). Realiza una petición HTTP POST. Se usa para enviar datos a un servidor:
+ data = {'key': 'value'}
+ response = requests.post('https://api.example.com/data', data=data)
+
+ print(response.text) 
+
+# requests.put(url, data=None, **kwargs). Realiza una petición HTTP PUT. Se utiliza para actualizar o reemplazar datos en el servidor. 
+data = {'key': 'new_value'}
+ response = requests.put('https://api.example.com/data/1', data=data) 
+print(response.text) 
+
+# requests.delete(url, **kwargs). Realiza una petición HTTP DELETE. Se usa para eliminar recursos en el servidor: 
+response = requests.delete('https://api.example.com/data/1') 
+print(response.text) 
+
+# requests.head(url, **kwargs). Realiza una petición HTTP HEAD. Es similar a una petición GET, pero solo devuelve los encabezados de la respuesta, sin el cuerpo: 
+response = requests.head('https://api.example.com/data') 
+print(response.headers) 
+
+# requests.options(url, **kwargs). Realiza una petición HTTP OPTIONS. Solicita información sobre los métodos HTTP soportados por el servidor para una URL específica.  
+response = requests.options('https://api.example.com/data') 
+print(response.headers) 
+
+#requests.patch(url, data=None, **kwargs). Realiza una petición HTTP PATCH. Se usa para aplicar modificaciones parciales a un recurso en el servidor: 
+data = {'key': 'new_partial_value'} 
+response = requests.patch('https://api.example.com/data/1', data=data) 
+print(response.text) 
+
+8. requests.request(method, url, **kwargs). Permite hacer cualquier tipo de petición HTTP (GET, POST, PUT, DELETE, etc.):
+response = requests.request('GET', 'https://api.example.com/data') 
+print(response.text) 
+
+#requests.get() (con parámetros de sesión). Permite la creación de sesiones persistentes entre peticiones para manejar cookies y mantener el estado: 
+session = requests.Session()
+ response = session.get('https://api.example.com/data') 
+
+#Funciones adicionales
+
+# requests.Session(). Crea una sesión que permite mantener cookies y configuraciones de parámetros entre peticiones: 
+session = requests.Session()
+ response = session.get('https://api.example.com/data') 
+
+# requests.exceptions.RequestException. Es la clase base para todas las excepciones del módulo requests. Puedes usarla para capturar cualquier error en las peticiones:
+ from requests.exceptions import RequestException
+ try: 
+response = requests.get('https://api.example.com/data')
+ response.raise_for_status() # Lanza una excepción para errores HTTP 
+except RequestException as e: 
+print(f"Hubo un error: {e}") 
+
+#requests.auth. Contiene clases para la autenticación en las peticiones HTTP, como autenticación básica o autenticación mediante tokens. Ejemplo de autenticación básica:
+from requests.auth import HTTPBasicAuth
+ response = requests.get('https://api.example.com/data', auth=HTTPBasicAuth('user', 'pass')) 
+
+
+#Clases del módulo requests
+
+# requests.Request. La clase Request representa una petición HTTP que aún no se ha enviado. Se utiliza para construir una solicitud antes de enviarla al servidor. 
+#Esta clase no realiza la solicitud directamente, permite construir y preparar la petición, para luego ser enviada por requests.Session.:
+ req = requests.Request('GET', 'https://api.example.com/data') 
+prepared = req.prepare() # Prepara la solicitud 
+response = requests.Session().send(prepared) # Enviar la solicitud 
+print(response.text) 
+
+requests.Response. La clase Response es respuesta de una petición HTTP realizada con requests. 
+#Esta clase contiene los datos que el servidor envía de vuelta como resultado de una solicitud, incluyendo el contenido, el código de estado HTTP, las cabeceras, etc:
+response = requests.get('https://api.example.com/data') 
+print(response.status_code) # Código de estado HTTP 
+print(response.text) # Cuerpo de la respuesta 
+
+#requests.Session. La clase Session permite mantener una sesión persistente a través de múltiples peticiones HTTP. Las sesiones permiten conservar cookies y otros parámetros entre peticiones, como cabeceras personalizadas, sin tener que configurar manualmente cada solicitud:
+session = requests.Session() 
+response = session.get('https://api.example.com/data') 
+print(response.cookies) # Las cookies mantenidas en la sesión 
+
+#requests.adapters.HTTPAdapter. La clase HTTPAdapter se utiliza para definir un adaptador para gestionar la conexión HTTP. Esto incluye la configuración de opciones como reintentos, tiempo de espera, y otros detalles relacionados con la conexión HTTP. Ejemplo:
+import requests from requests.adapters 
+import HTTPAdapter
+ session = requests.Session() 
+adapter = HTTPAdapter(max_retries=3) # Reintentos en caso de fallos 
+session.mount('http://', adapter) 
+response = session.get('https://api.example.com/data') 
+
+#requests.auth.HTTPBasicAuth. La clase HTTPBasicAuth proporciona una forma fácil de agregar autenticación básica en las solicitudes HTTP. Esta clase toma un nombre de usuario y una contraseña y los incluye en las cabeceras de la solicitud para la autenticación. Ejemplo:
+from requests.auth import HTTPBasicAuth 
+response = requests.get('https:/ api.example.com/data', auth=HTTPBasicAuth('user', 'pass')) 
+print(response.text) 
+
+#requests.cookies.RequestsCookieJar. La clase RequestsCookieJar es utilizada para manejar las cookies en una sesión. Permite almacenar y manipular las cookies que se intercambian entre el cliente y el servidor en el contexto de las peticiones HTTP. :
+session = requests.Session() 
+cookie_jar = session.cookies
+cookie_jar.set('my_cookie', 'value') # Establecer una cookie 
+print(cookie_jar) 
+
+
+
+#Constantes del módulo requests
+
+"""requests.codes, representan los códigos de estado HTTP. Estas constantes se utilizan para hacer que el código sea más legible, en lugar de usar los números de código de estado directamente. requests.codes.ok: 200 (Solicitud exitosa)
+requests.codes.created: 201 (Recurso creado)
+requests.codes.accepted: 202 (Solicitud aceptada, pero no procesada aún.
+requests.codes.no_content: 204 (No hay contenido)
+
+requests.codes.moved_permanently: 301 (Redirección permanente)
+requests.codes.found: 302 (Redirección temporal)
+requests.codes.not_modified: 304 (No modificado)
+requests.codes.bad_request: 400 (Solicitud incorrecta)
+requests.codes.unauthorized: 401 (No autorizado)
+requests.codes.forbidden: 403 (Prohibido)
+requests.codes.not_found: 404 (No encontrado)
+requests.codes.internal_server_error: 500 (Error interno del servidor)
+requests.codes.not_implemented: 501 (Método no implementado)
+requests.codes.bad_gateway: 502 (Puerta de enlace incorrecta)
+requests.codes.service_unavailable: 503 (Servicio no disponible)"""
+
+response = requests.get('https://api.example.com/data') # Comprobar si la respuesta fue exitosa 
+if response.status_code == requests.codes.ok: 
+print("La solicitud fue exitosa.") 
+
